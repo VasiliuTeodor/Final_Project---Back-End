@@ -10,6 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+const cors = require("cors");
 
 // solve CORS issues for localhost requests
 app.use(function (req, res, next) {
@@ -25,6 +26,7 @@ app.use(function (req, res, next) {
 
 // Middlewares
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get("/", async (req, res) => {
   res.send("<h1>Ecommerce 17 Node JS Server</h1>");
